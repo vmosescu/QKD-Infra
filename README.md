@@ -5,7 +5,8 @@ This application implements the communication protocol described in ETSI GS QKD 
 Quantum Key Distribution (QKD); Protocol and data format of REST-based key delivery API
 It has 2 modules: 
 * Key Management Entity (KME) simulator
-* Secure Application Entity (SAE) simulator
+* Key Management Entity (KME) tester
+
 
 ## KME simulator
 It simulates multiple KMEs. 
@@ -28,11 +29,12 @@ Next releases will add more features:
 * accepting commands (e.g. generate keys)
 * loading configuration files
 
-## SAE simulator
-It simulates requests to KME simulator.
+## KME tester
+It is a Secure Application Entity (SAE) for testing a KME device.
+
 
 ### Usage
-SAE simulator exposes a REST API which triggers the requests to KME simulator. 
+KME tester exposes a REST API which triggers the requests to KME simulator. 
 * http://localhost:8081/status
 * http://localhost:8081/enc
 * http://localhost:8081/dec
