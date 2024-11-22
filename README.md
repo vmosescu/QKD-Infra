@@ -13,26 +13,16 @@ It simulates multiple KMEs.
 Current release implements only GET access methods for the REST API. 
 
 ### Usage
-Because this release does not implement also the specification from ETSI 004, 
-every request should contain the SAE ID (SAE-ID) in header.
+We can use `curl` to test our simulator.
 
-`curl -v -H 'SAE-ID: SAE-A' http://localhost:8080/api/v1/keys/SAE-B/status`
+`curl -v -k --cert sae-a.crt --key sae-a.key https://localhost:8443/api/v1/keys/SAE-B/status`
 
-`curl -v -H 'SAE-ID: SAE-A' http://localhost:8080/api/v1/keys/SAE-B/enc_keys`
+`curl -v -k --cert sae-a.crt --key sae-a.key https://localhost:8443/api/v1/keys/SAE-B/enc_keys`
 
-`curl -v -H 'SAE-ID: SAE-B' http://localhost:8080/api/v1/keys/SAE-A/dec_keys`
+`curl -v -k --cert sae-b.crt --key sae-b.key https://localhost:8443/api/v1/keys/SAE-A/dec_keys`
 
 Next releases will add more features:
 * POST access methods
 * communication between simulators installed in a network 
-* accepting commands (e.g. generate keys)
+* accepting commands (e.g. `generate keys`)
 * loading configuration files
-
-## SAE simulator
-It simulates requests to KME simulator.
-
-### Usage
-SAE simulator exposes a REST API which triggers the requests to KME simulator. 
-* http://localhost:8081/status
-* http://localhost:8081/enc
-* http://localhost:8081/dec
